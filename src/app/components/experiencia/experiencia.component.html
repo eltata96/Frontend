@@ -3,8 +3,10 @@
     <div class="d-flex justify-content-between align-items-center">
      <h1>Experiencia</h1>
 <!-- boton añadir experiencia-->    
-      <button type="button" class="btn btn-primary" (click)="onOpenModal('add')" data-bs-toggle="modal" data-bs-target="#experienciaModal">+
+      <td *ngIf="isLogged">
+        <button type="button" class="btn btn-primary" (click)="onOpenModal('add')" data-bs-toggle="modal" data-bs-target="#experienciaModal">+
       </button>
+    </td>
     </div>
   </div>
 </div>
@@ -20,7 +22,7 @@
           <p>{{experiencia.descExp}}</p>
     </div>
 <!-- botones editar y borrar -->  
-    <div class="col col-md-1 col-lg-1 col-xl-1">  
+    <div *ngIf="isLogged" class="col col-md-1 col-lg-1 col-xl-1">  
       <button 
       (click)="onOpenModal('edit',experiencia)" 
       type="button" 

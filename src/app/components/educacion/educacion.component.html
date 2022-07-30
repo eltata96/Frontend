@@ -2,8 +2,10 @@
   <div class="section-title">
     <div class="d-flex justify-content-between align-items-center">
      <h1>Educación</h1>
-        <button type="button" class="btn btn-primary" (click)="onOpenModal('add')" data-bs-toggle="modal" data-bs-target="#educacionModal">+
+        <td *ngIf="isLogged">
+          <button type="button" class="btn btn-primary" (click)="onOpenModal('add')" data-bs-toggle="modal" data-bs-target="#educacionModal">+
         </button>
+      </td>
     </div>
   </div>
 </div>
@@ -19,7 +21,7 @@
         <p>{{educacion.descEdu}}</p>
     </div>
 <!-- botones editar y borrar -->  
-    <div class="col col-md-1 col-lg-1 col-xl-1">
+    <div *ngIf="isLogged" class="col col-md-1 col-lg-1 col-xl-1">
       <button 
             (click)="onOpenModal('edit',educacion)" 
             type="button" 

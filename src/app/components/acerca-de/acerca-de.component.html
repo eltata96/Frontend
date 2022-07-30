@@ -17,7 +17,7 @@
       </span>
     </div>
     <!-- boton editar-->
-    <div class="col text-justify">
+    <div *ngIf="isLogged" class="col text-justify">
       <button (click)="onOpenModal('edit',usuario)" type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
         data-bs-target="#editUsuarioModal">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill"
