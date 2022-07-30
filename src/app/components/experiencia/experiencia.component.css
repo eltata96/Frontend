@@ -1,0 +1,14 @@
+.row{
+    padding: 20px;
+}
+.container-fluid{
+    background-color: rgb(214, 214, 214);
+}
+.section-title {
+    display: block;
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+h2, h3{
+    display: inline;
+}

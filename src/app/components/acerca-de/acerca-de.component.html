@@ -1,0 +1,79 @@
+<div class="container-fluid">
+  <div *ngIf="usuario" class="row">
+    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+      <img src="{{usuario.fotoPerfil}}" id="profilePic" class="img-fluid">
+    </div>
+    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+      <h4>
+        <p>{{usuario.nombre}}</p>
+      </h4>
+      <p>{{usuario.titulo}}</p>
+    </div>
+
+    <div *ngIf="usuario" class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+      <span>
+        <h1>Acerca de mí</h1>
+        <p>{{usuario.descripcion}}</p>
+      </span>
+    </div>
+    <!-- boton editar-->
+    <div class="col text-justify">
+      <button (click)="onOpenModal('edit',usuario)" type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+        data-bs-target="#editUsuarioModal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill"
+          viewBox="0 0 16 16">
+          <path
+            d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+<!-- Editar modal usuario -->
+<div class="modal fade" id="editUsuarioModal" tabindex="-1" aria-labelledby="editUsuarioModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editUsuarioModalLabel">Editar usuario {{ editUsuario?.nombre}}</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #editForm="ngForm">
+          <div class="form-group">
+            <label for="nombre" class="col-form-label">Nombre</label>
+            <input type="text" ngModel="{{ editUsuario?.nombre}}" name="nombre" class="form-control" id="nombre"
+              placeholder="Nombre del usuario">
+          </div>
+          <input type="hidden" ngModel="{{ editUsuario?.id }}" name="id" class="form-control" id="id" placeholder="">
+          <div class="form-group">
+            <label for="apellido" class="col-form-label">Apellido</label>
+            <input type="text" ngModel="{{ editUsuario?.apellido }}" name="apellido" class="form-control" id="apellido"
+              placeholder="Introducir apellido">
+          </div>
+          <div class="form-group">
+            <label for="titulo" class="col-form-label">Titulo</label>
+            <input type="text" ngModel="{{ editUsuario?.titulo }}" name="titulo" class="form-control" id="titulo"
+              placeholder="Profesión.">
+          </div>
+          <div class="form-group">
+            <label for="descripcion" class="col-form-label">Descripcion</label>
+            <input type="text" ngModel="{{ editUsuario?.descripcion }}" name="descripcion" class="form-control"
+              id="titdescripcionulo" placeholder="Descripcion de la Profesión">
+          </div>
+          <div class="form-group">
+            <label for="fotoPerfil" class="col-form-label">Imagen URL</label>
+            <input type="text" ngModel="{{ editUsuario?.fotoPerfil}}" name="fotoPerfil" class="form-control"
+              id="fotoPerfil" placeholder="Introducir URL">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button (click)="onUpdateUsuario(editForm.value)" data-bs-dismiss="modal" type="submit"
+              class="btn btn-primary">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
