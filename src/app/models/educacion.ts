@@ -1,6 +1,6 @@
 export interface Educacion{
     idEdu:number;  
-    fechaEdu:number;
+    fechaEdu:string;
     descEdu:string;
     imgEdu:string;
     tituloEdu:string;
