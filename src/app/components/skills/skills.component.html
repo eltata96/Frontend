@@ -18,7 +18,7 @@
       <circle-progress [percent]="skills.porcentaje" [radius]="100" [showTitle]="false" [showImage]="true"
         [imageSrc]="skills.fotoSkill" [imageHeight]="75" [imageWidth]="75" [outerStrokeWidth]="16"
         [innerStrokeWidth]="8" [outerStrokeColor]="'black'" [innerStrokeColor]="'darkgrey'" [animation]="true"
-        [animationDuration]="300" [showSubtitle]="false"></circle-progress>
+        [animationDuration]="300" [showSubtitle]="false" [lazy]="true"></circle-progress>
       <!-- botones editar y borrar -->
       <td *ngIf="isLogged">
         <button (click)="onOpenModal('edit',skills)" type="button" class="btn btn-outline-primary"
